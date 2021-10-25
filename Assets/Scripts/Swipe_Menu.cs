@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Swipe_Menu : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class Swipe_Menu : MonoBehaviour
     float[] pos;
 
 
+    public GameObject RedCar;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        RedCar.SetActive(true);
     }
 
     // Update is called once per frame
@@ -60,4 +64,15 @@ public class Swipe_Menu : MonoBehaviour
         }
 
     }
+
+
+    public void RedCarBtnClicked()
+    {
+        SceneManager.LoadScene(2);
+    }
+        
+
+
+
+    
 }
