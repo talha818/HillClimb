@@ -20,11 +20,8 @@ public class Carcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input .GetKey  (KeyCode.RightArrow))
-        {
-            movement = Input.GetAxis("Horizontal");
-        }
-        //movement = Input.GetAxis("Horizontal");
+        
+        movement = Input.GetAxis("Horizontal");
 
     }
 
