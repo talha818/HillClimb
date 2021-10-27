@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872692, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294130846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -70.49, y: 6.89, z: -10}
+  m_LocalPosition: {x: -64.36, y: 1.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -219,7 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c147a77472bcc740b8d90bdac6cf4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 882980239}
+  Playerpos: {fileID: 882980239}
+  velocity: {x: 0, y: 0, z: 0}
+  Smoothness: 0.5
 --- !u!1 &357907491
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 357907492}
   - component: {fileID: 357907493}
+  - component: {fileID: 357907494}
   m_Layer: 0
   m_Name: bike-driver-body
   m_TagString: Untagged
@@ -245,11 +248,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357907491}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.155, y: 0.237, z: 0}
+  m_LocalPosition: {x: 0.0060028285, y: -0.43600008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 882980239}
-  m_RootOrder: 4
+  m_Father: {fileID: 1136261252}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &357907493
 SpriteRenderer:
@@ -302,6 +305,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &357907494
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357907491}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.006721519, y: 0.004483342}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 0.64}
+    newSize: {x: 1.28, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22643016, y: 0.4696356}
+  m_EdgeRadius: 0
 --- !u!1 &882980238
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,9 +341,9 @@ GameObject:
   m_Component:
   - component: {fileID: 882980239}
   - component: {fileID: 882980240}
-  - component: {fileID: 882980241}
   - component: {fileID: 882980243}
   - component: {fileID: 882980242}
+  - component: {fileID: 882980241}
   m_Layer: 0
   m_Name: Car_Controller
   m_TagString: Untagged
@@ -330,14 +359,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882980238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -81.47, y: 6.77, z: 0}
+  m_LocalPosition: {x: -63.3, y: 6.77, z: 0}
   m_LocalScale: {x: 1.6525, y: 1.6525, z: 1.6525}
   m_Children:
   - {fileID: 1340492578}
   - {fileID: 1136261252}
   - {fileID: 1478303012}
   - {fileID: 1166484329}
-  - {fileID: 357907492}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,11 +402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9b7ed0970bdd147835169ab305da37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1500
+  rotationspeed: 15
   CarRigidbody: {fileID: 882980240}
-  fronttyre: {fileID: 1478303016}
-  backtyre: {fileID: 1166484333}
-  speed: 50
-  Torque: 20
+  fronttyre: {fileID: 882980243}
+  backtyre: {fileID: 882980242}
 --- !u!235 &882980242
 WheelJoint2D:
   m_ObjectHideFlags: 0
@@ -399,7 +427,7 @@ WheelJoint2D:
     m_DampingRatio: 1
     m_Frequency: 10
     m_Angle: 90
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
@@ -437,6 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136261252}
   - component: {fileID: 1136261253}
+  - component: {fileID: 1136261254}
   m_Layer: 0
   m_Name: driver-head
   m_TagString: Untagged
@@ -454,7 +483,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.14899737, y: 0.6730001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 357907492}
   m_Father: {fileID: 882980239}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -509,6 +539,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1136261254
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136261251}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.03138238}
+  serializedVersion: 2
+  m_Radius: 0.27068394
 --- !u!1 &1146469018
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,8 +812,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146469018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -83, y: -4.8, z: -8.417375}
-  m_LocalScale: {x: 3.6685193, y: 3.6685193, z: 3.6685193}
+  m_LocalPosition: {x: -83, y: -11.2806, z: -8.417375}
+  m_LocalScale: {x: 3.6685193, y: 6.260695, z: 3.6685193}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1077,7 +1123,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2c4c59032700f4740bd524cb40c89ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1116,7 +1162,11 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 1.1399394, y: -0.42962697}
       - {x: 1.27, y: -0.41}
-      - {x: 1.27, y: -0.47}
+      - {x: 1.2655147, y: -0.45206687}
+      - {x: 1.2985523, y: -0.34421536}
+      - {x: 1.3108978, y: -0.277354}
+      - {x: 1.3246976, y: -0.21447729}
+      - {x: 1.3033953, y: -0.07927282}
       - {x: 1.23, y: 0.03}
       - {x: 1.24, y: 0.04}
       - {x: 1.2099999, y: 0.04}

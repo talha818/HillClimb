@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Camera_Follow : MonoBehaviour
 {
-    public Transform target;
-    private  Vector3 offset;
+    public Transform Playerpos;
+    public Vector3 velocity;
+    public float Smoothness;
 
     private void Start()
     {
-        offset = transform.position - target.position;
+        //offset = transform.position - target.position;
     }
 
     private void Update()
     {
-        transform.position = target.position + offset;
-
+        Vector3 target = new Vector3(Playerpos.position.x, Playerpos.position.y, -10f);
+        transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, Smoothness);
         
     }
 }

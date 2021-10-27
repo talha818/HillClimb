@@ -10,16 +10,15 @@ public class Swipe_Menu : MonoBehaviour
     float scroll_pos = 0;
     float[] pos;
 
-
     public GameObject RedCar;
-    public GameObject SettingPanel;
+
+   
 
 
     // Start is called before the first frame update
     void Start()
     {
         RedCar.SetActive(true);
-        SettingPanel.SetActive(false );
     }
 
     // Update is called once per frame
@@ -67,18 +66,17 @@ public class Swipe_Menu : MonoBehaviour
 
     }
 
-
-    public void RedCarBtnClicked()
+    public void RedCarClicked()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void SettingBtnClicked()
-    {
-        
-        SettingPanel.SetActive(true);
-        RedCar.SetActive(false);
-    }
+   
+
+    
+
+
+    
         
 
 
