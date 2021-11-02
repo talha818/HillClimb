@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Coins
+  - Coin5
+  - Coin25
+  - Coin100
+  - Coin500
   layers:
   - Default
   - TransparentFX
