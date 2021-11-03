@@ -5,7 +5,7 @@ using UnityEngine;
 public class Carcontroller : MonoBehaviour
 {
     
-    public float speed = 1500f;
+    public float speed = 1000f;
     public float rotationspeed = 15f;
 
     public Rigidbody2D CarRigidbody;
@@ -17,6 +17,12 @@ public class Carcontroller : MonoBehaviour
     private float movement=0f;
     private float rotaion=0f;
 
+    private bool Ispressed;
+
+    public float Fuel=1f;
+    public float FuelConsumption=0.1f;
+    public UnityEngine.UI.Image image;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,46 +32,76 @@ public class Carcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        movement = -Input.GetAxisRaw ("Vertical")*speed ;
+        image.fillAmount = Fuel;
+
+        if (Ispressed )
+        {
+            movement = -1*speed;
+        }
+        else
+        {
+            movement = 0;
+        }
+        //movement = -Input.GetAxisRaw ("Vertical")*speed ;
         rotaion = Input.GetAxisRaw("Horizontal");
 
     }
 
     private void FixedUpdate()
     {
-        if (movement ==0)
+        if (Fuel > 0)
         {
-            fronttyre.useMotor = false;
-            backtyre.useMotor = false;
+            if (movement == 0)
+            {
+                fronttyre.useMotor = false;
+                backtyre.useMotor = false;
+
+            }
+            else
+            {
+                fronttyre.useMotor = true;
+                backtyre.useMotor = true;
+
+                JointMotor2D motor = new JointMotor2D { motorSpeed = movement, maxMotorTorque = 10000f };
+                fronttyre.motor = motor;
+                backtyre.motor = motor;
+            }
+        }
+
+
+        Fuel -= FuelConsumption * Mathf.Abs(movement) * Time.fixedDeltaTime;
 
         }
-        else
-        {
-            fronttyre.useMotor = true;
-            backtyre.useMotor = true;
-
-            JointMotor2D motor = new JointMotor2D { motorSpeed = movement, maxMotorTorque = 10000f };
-            fronttyre.motor = motor;
-            backtyre.motor = motor;
-
-            
-        }
-
-        CarRigidbody.AddTorque(rotaion * rotationspeed * Time.fixedDeltaTime);
 
 
 
-
-
-
-
-
-
-        //fronttyre.AddTorque(-movement * speed * Time.fixedDeltaTime);
-        //backtyre.AddTorque(-movement * speed * Time.fixedDeltaTime);
-        //CarRigidbody.AddTorque(-movement * Torque * Time.fixedDeltaTime);
-
-
+    public void Pressed()
+    {
+        Ispressed = true;
     }
+
+    public void NotPressed()
+    {
+        Ispressed = false;
+    }
+
+    public void BreakBtnClicked()
+    {
+        CarRigidbody.Sleep();
+    }
+   
+
+
+
+
+
+        
+
+   
 }
+
+//fronttyre.AddTorque(-movement * speed * Time.fixedDeltaTime);
+//backtyre.AddTorque(-movement * speed * Time.fixedDeltaTime);
+//CarRigidbody.AddTorque(-movement * Torque * Time.fixedDeltaTime);
+
+
