@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
-    public GameObject SettingPanel;
+    public  GameObject SettingPanel;
  
 
     // Start is called before the first frame update
@@ -41,6 +41,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    
 
 
 

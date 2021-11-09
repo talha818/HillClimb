@@ -69,6 +69,7 @@ public class Swipe_Menu : MonoBehaviour
     public void RedCarClicked()
     {
         SceneManager.LoadScene(2);
+        Time.timeScale = 1;
     }
 
    

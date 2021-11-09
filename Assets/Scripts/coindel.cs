@@ -8,16 +8,32 @@ public class coindel : MonoBehaviour
 {
 
     public AudioSource CoinSound;
-    public AudioClip clip;
+    public AudioClip Coinclip;
 
 
     public int Score;
     public Text  Scoretxt;
 
+    public static int HighScore;
+    public Text HighScoretxt;
+    static int hiScore;
+
 
     private void Start()
     {
         Score = 0;
+        GetHighScore();
+    }
+
+
+    private void Update()
+    {
+        if(Score>HighScore )
+        {
+            HighScore = Score;
+        }
+
+        HighScoretxt.text = "HIGHSCORE  " + hiScore.ToString();
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -26,7 +42,7 @@ public class coindel : MonoBehaviour
         {
             Score+=5;
             Scoretxt.text = "Score: " + Score.ToString();
-            CoinSound.PlayOneShot(clip);
+            CoinSound.PlayOneShot(Coinclip);
             
 
 
@@ -38,7 +54,7 @@ public class coindel : MonoBehaviour
         {
             Score += 25;
             Scoretxt.text = "Score: " + Score.ToString();
-            CoinSound.PlayOneShot(clip);
+            CoinSound.PlayOneShot(Coinclip);
 
 
 
@@ -51,7 +67,7 @@ public class coindel : MonoBehaviour
         {
             Score += 100;
             Scoretxt.text = "Score: " + Score.ToString();
-            CoinSound.PlayOneShot(clip);
+            CoinSound.PlayOneShot(Coinclip);
 
 
 
@@ -63,7 +79,7 @@ public class coindel : MonoBehaviour
         {
             Score += 500;
             Scoretxt.text = "Score: " + Score.ToString();
-            CoinSound.PlayOneShot(clip);
+            CoinSound.PlayOneShot(Coinclip);
 
 
 
@@ -71,5 +87,22 @@ public class coindel : MonoBehaviour
         }
 
         
+    }
+
+    public static void SaveHighscore()
+    {
+        PlayerPrefs.SetInt("HighScore", HighScore);
+    }
+
+    public void GetHighScore()
+    {
+        HighScore = PlayerPrefs.GetInt("HighScore");
+    }
+
+    public static void ShowHighScore()
+    {
+        hiScore = HighScore;
+
+
     }
 }

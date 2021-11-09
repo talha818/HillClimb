@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Carcontroller : MonoBehaviour
 {
     
@@ -21,7 +22,16 @@ public class Carcontroller : MonoBehaviour
 
     public float Fuel=1f;
     public float FuelConsumption=0.5f;
-    public UnityEngine.UI.Image FuelImage;
+    public Image FuelImage;
+
+
+    public GameObject PausePanel;
+    public GameObject GameOverPanel;
+    public GameObject PauseBtn;
+    public GameObject WinPanel;
+
+    public AudioSource FuelSound;
+    public AudioClip FuelClip;
 
     //private bool stopcar;
 
@@ -111,9 +121,70 @@ public class Carcontroller : MonoBehaviour
         {
 
             Fuel = 1f;
+            FuelSound.PlayOneShot(FuelClip);
 
             Destroy(c.gameObject);
         }
+    }
+
+    public void PauseBtnClicked()
+    {
+        Time.timeScale = 0;
+        PausePanel.SetActive(true);
+    }
+
+    public void MainMenuBtnClicked()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ResumeBtnClicked()
+    {
+        Time.timeScale = 1;
+        PausePanel.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if( collision .gameObject.tag =="Ground")
+        {
+            Debug.Log("Gameover");
+            GameOverPanelClicked();
+        }
+
+        if (collision.gameObject.tag == "WinLine")
+        {
+            Debug.Log("WinGame");
+            WinPanelClicked();
+        }
+
+    }
+
+
+    public void GameOverPanelClicked()
+    {
+        if(GameOverPanel ==true )
+        {
+            PauseBtn.SetActive(false);
+        }
+        GameOverPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+
+    public void WinPanelClicked()
+    {
+        coindel.ShowHighScore();
+        coindel.SaveHighscore();
+        WinPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ReplayBtnClicked()
+    {
+        SceneManager.LoadScene(2);
+        GameOverPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
 

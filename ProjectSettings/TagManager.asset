@@ -10,6 +10,8 @@ TagManager:
   - Coin100
   - Coin500
   - Fuel
+  - Ground
+  - WinLine
   layers:
   - Default
   - TransparentFX
