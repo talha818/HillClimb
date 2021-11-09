@@ -20,19 +20,23 @@ public class Carcontroller : MonoBehaviour
     private bool Ispressed;
 
     public float Fuel=1f;
-    public float FuelConsumption=0.1f;
-    public UnityEngine.UI.Image image;
+    public float FuelConsumption=0.5f;
+    public UnityEngine.UI.Image FuelImage;
+
+    //private bool stopcar;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        image.fillAmount = Fuel;
+        
+        FuelImage.fillAmount = Fuel;
 
         if (Ispressed )
         {
@@ -65,19 +69,30 @@ public class Carcontroller : MonoBehaviour
                 JointMotor2D motor = new JointMotor2D { motorSpeed = movement, maxMotorTorque = 10000f };
                 fronttyre.motor = motor;
                 backtyre.motor = motor;
+
+                Fuel -= FuelConsumption * Time.fixedDeltaTime;
+
+              
             }
+            
+            
+        }
+        if (Fuel <0)
+        {
+            BreakBtnClicked();
+            //OpenParachute();
         }
 
+        //Fuel -= FuelConsumption * Time.fixedDeltaTime;
+       
 
-        Fuel -= FuelConsumption * Mathf.Abs(movement) * Time.fixedDeltaTime;
-
-        }
+    }
 
 
 
     public void Pressed()
     {
-        Ispressed = true;
+        Ispressed = true ;
     }
 
     public void NotPressed()
@@ -89,15 +104,39 @@ public class Carcontroller : MonoBehaviour
     {
         CarRigidbody.Sleep();
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D c)
+    {
+        if (c.gameObject.tag == "Fuel")
+        {
+
+            Fuel = 1f;
+
+            Destroy(c.gameObject);
+        }
+    }
+
+
+
+
+    //IEnumerator Pressed()
+    //{
+    //    //Fuel .fillAmount -= 0.1f;
+    //    //SetMotorTorque(motorForce);
+    //    //yield return new waitforseconds(2);
+    //    //print("boost left : " + boostBar.fillAmount)
+    //    if (image .fillAmount <= 0)
+    //    { BreakBtnClicked(); }
+
+    //}
 
 
 
 
 
-        
 
-   
+
+
 }
 
 //fronttyre.AddTorque(-movement * speed * Time.fixedDeltaTime);

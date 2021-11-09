@@ -12,7 +12,7 @@ public class coindel : MonoBehaviour
 
 
     public int Score;
-    public TextMeshProUGUI Scoretxt;
+    public Text  Scoretxt;
 
 
     private void Start()
@@ -25,7 +25,7 @@ public class coindel : MonoBehaviour
         if (c.gameObject.tag == "Coin5")
         {
             Score+=5;
-            Scoretxt.text = "X " + Score.ToString();
+            Scoretxt.text = "Score: " + Score.ToString();
             CoinSound.PlayOneShot(clip);
             
 
@@ -37,7 +37,7 @@ public class coindel : MonoBehaviour
         if (c.gameObject.tag == "Coin25")
         {
             Score += 25;
-            Scoretxt.text = "X " + Score.ToString();
+            Scoretxt.text = "Score: " + Score.ToString();
             CoinSound.PlayOneShot(clip);
 
 
@@ -50,7 +50,7 @@ public class coindel : MonoBehaviour
         if (c.gameObject.tag == "Coin100")
         {
             Score += 100;
-            Scoretxt.text = "X " + Score.ToString();
+            Scoretxt.text = "Score: " + Score.ToString();
             CoinSound.PlayOneShot(clip);
 
 
@@ -62,12 +62,14 @@ public class coindel : MonoBehaviour
         if (c.gameObject.tag == "Coin500")
         {
             Score += 500;
-            Scoretxt.text = "X " + Score.ToString();
+            Scoretxt.text = "Score: " + Score.ToString();
             CoinSound.PlayOneShot(clip);
 
 
 
             Destroy(c.gameObject);
         }
+
+        
     }
 }

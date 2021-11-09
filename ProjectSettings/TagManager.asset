@@ -9,6 +9,7 @@ TagManager:
   - Coin25
   - Coin100
   - Coin500
+  - Fuel
   layers:
   - Default
   - TransparentFX
