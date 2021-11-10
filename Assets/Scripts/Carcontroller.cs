@@ -26,14 +26,25 @@ public class Carcontroller : MonoBehaviour
 
 
     public GameObject PausePanel;
-    public GameObject GameOverPanel;
-    public GameObject PauseBtn;
+   
+    public  GameObject PauseBtn;
     public GameObject WinPanel;
+    public GameObject GameOverPanel;
 
-    public AudioSource FuelSound;
+    public AudioSource GameSound;
     public AudioClip FuelClip;
+    
+    public AudioClip Gameoverclip;
 
-    //private bool stopcar;
+    public AudioClip Winclip;
+    //public AudioClip Gameoverclip;
+
+    
+
+
+    
+
+
 
 
     // Start is called before the first frame update
@@ -90,6 +101,7 @@ public class Carcontroller : MonoBehaviour
         if (Fuel <0)
         {
             BreakBtnClicked();
+           // Time.timeScale = 0f;
             //OpenParachute();
         }
 
@@ -115,17 +127,25 @@ public class Carcontroller : MonoBehaviour
         CarRigidbody.Sleep();
     }
 
+
+
+
+
+
     private void OnTriggerEnter2D(Collider2D c)
     {
         if (c.gameObject.tag == "Fuel")
         {
 
             Fuel = 1f;
-            FuelSound.PlayOneShot(FuelClip);
+            GameSound.PlayOneShot(FuelClip);
 
             Destroy(c.gameObject);
         }
+
+        
     }
+
 
     public void PauseBtnClicked()
     {
@@ -133,10 +153,12 @@ public class Carcontroller : MonoBehaviour
         PausePanel.SetActive(true);
     }
 
+
     public void MainMenuBtnClicked()
     {
         SceneManager.LoadScene(1);
     }
+
 
     public void ResumeBtnClicked()
     {
@@ -144,34 +166,32 @@ public class Carcontroller : MonoBehaviour
         PausePanel.SetActive(false);
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       if( collision .gameObject.tag =="Ground")
-        {
-            Debug.Log("Gameover");
-            GameOverPanelClicked();
-        }
+       
 
         if (collision.gameObject.tag == "WinLine")
         {
+            GameSound.PlayOneShot(Winclip );
             Debug.Log("WinGame");
             WinPanelClicked();
         }
 
-    }
-
-
-    public void GameOverPanelClicked()
-    {
-        if(GameOverPanel ==true )
+        if (collision.gameObject.tag == "Ground")
         {
-            PauseBtn.SetActive(false);
+            GameSound.PlayOneShot(Gameoverclip);
+            Debug.Log("Gameover");
+            GameOverPanelClicked();
         }
-        GameOverPanel.SetActive(true);
-        Time.timeScale = 0;
+
     }
 
 
+    
+
+
+   
     public void WinPanelClicked()
     {
         coindel.ShowHighScore();
@@ -185,6 +205,16 @@ public class Carcontroller : MonoBehaviour
         SceneManager.LoadScene(2);
         GameOverPanel.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void GameOverPanelClicked()
+    {
+        if (GameOverPanel == true)
+        {
+          PauseBtn.SetActive(false);
+        }
+        GameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
 
