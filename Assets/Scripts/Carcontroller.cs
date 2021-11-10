@@ -207,6 +207,14 @@ public class Carcontroller : MonoBehaviour
         Time.timeScale = 1;
     }
 
+
+    public void ReplayBtnClickedLevel2()
+    {
+        SceneManager.LoadScene(3);
+        GameOverPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void GameOverPanelClicked()
     {
         if (GameOverPanel == true)
