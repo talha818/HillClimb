@@ -226,6 +226,10 @@ public class Carcontroller : MonoBehaviour
     }
 
 
+    public void NextlevelBtnClicked1()
+    {
+        SceneManager.LoadScene(3);
+    }
 
 
     //IEnumerator Pressed()
