@@ -3243,7 +3243,7 @@ GameObject:
   - component: {fileID: 657555186}
   - component: {fileID: 657555185}
   m_Layer: 5
-  m_Name: Replay_Btn
+  m_Name: NextLevelBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3315,7 +3315,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 882980241}
         m_TargetAssemblyTypeName: Carcontroller, Assembly-CSharp
-        m_MethodName: ReplayBtnClicked
+        m_MethodName: NextlevelBtnClicked2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4512,7 +4512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882980238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -84.2, y: 2, z: 0}
+  m_LocalPosition: {x: -84, y: 2, z: 0}
   m_LocalScale: {x: 1.6525, y: 1.6525, z: 1.6525}
   m_Children:
   - {fileID: 1340492578}

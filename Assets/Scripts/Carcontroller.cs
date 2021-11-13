@@ -229,6 +229,14 @@ public class Carcontroller : MonoBehaviour
     public void NextlevelBtnClicked1()
     {
         SceneManager.LoadScene(3);
+        Time.timeScale = 1;
+    }
+
+
+    public void NextlevelBtnClicked2()
+    {
+        SceneManager.LoadScene(4);
+        Time.timeScale = 1;
     }
 
 
