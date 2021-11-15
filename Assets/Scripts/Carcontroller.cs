@@ -30,6 +30,7 @@ public class Carcontroller : MonoBehaviour
     public  GameObject PauseBtn;
     public GameObject WinPanel;
     public GameObject GameOverPanel;
+    public GameObject FuelLowPanel;
 
     public AudioSource GameSound;
     public AudioClip FuelClip;
@@ -37,12 +38,11 @@ public class Carcontroller : MonoBehaviour
     public AudioClip Gameoverclip;
 
     public AudioClip Winclip;
-    //public AudioClip Gameoverclip;
-
-    
 
 
-    
+
+
+    private IEnumerator coroutine;
 
 
 
@@ -50,7 +50,7 @@ public class Carcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -74,6 +74,8 @@ public class Carcontroller : MonoBehaviour
 
     private void FixedUpdate()
     {
+        coroutine = FuelPanelClicked();
+
         if (Fuel > 0)
         {
             if (movement == 0)
@@ -101,7 +103,9 @@ public class Carcontroller : MonoBehaviour
         if (Fuel <0)
         {
             BreakBtnClicked();
-           // Time.timeScale = 0f;
+            StartCoroutine(coroutine);
+            //FuelLowPanelClicked();
+            //Time.timeScale = 0f;
             //OpenParachute();
         }
 
@@ -215,6 +219,13 @@ public class Carcontroller : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void ReplayBtnClickedLevel3()
+    {
+        SceneManager.LoadScene(4);
+        GameOverPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void GameOverPanelClicked()
     {
         if (GameOverPanel == true)
@@ -224,6 +235,16 @@ public class Carcontroller : MonoBehaviour
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
+
+    //public void FuelLowPanelClicked()
+    //{
+    //    if (FuelLowPanel == true)
+    //    {
+    //        PauseBtn.SetActive(false);
+    //    }
+    //    FuelLowPanel .SetActive(true);
+    //    Time.timeScale = 0;
+    //}
 
 
     public void NextlevelBtnClicked1()
@@ -239,14 +260,24 @@ public class Carcontroller : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    private  IEnumerator FuelPanelClicked()
+    {
+        yield return new WaitForSeconds(3f);
+        if (FuelLowPanel == true)
+        {
+            PauseBtn.SetActive(false);
+        }
+        FuelLowPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
 
     //IEnumerator Pressed()
     //{
-    //    //Fuel .fillAmount -= 0.1f;
-    //    //SetMotorTorque(motorForce);
-    //    //yield return new waitforseconds(2);
-    //    //print("boost left : " + boostBar.fillAmount)
-    //    if (image .fillAmount <= 0)
+    //    Fuel.fillAmount -= 0.1f;
+    //    SetMotorTorque(motorForce);
+    //    yield return new waitforseconds(2);
+    //    print("boost left : " + boostBar.fillAmount)
+    //    if (image.fillAmount <= 0)
     //    { BreakBtnClicked(); }
 
     //}
