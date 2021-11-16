@@ -66,21 +66,27 @@ public class Swipe_Menu : MonoBehaviour
 
     }
 
-    public void RedCarClicked()
+    public void LevelClicked()
     {
         SceneManager.LoadScene(2);
         Time.timeScale = 1;
     }
 
-   
-
-    
-
-
-    
-        
+    public void Leve2Clicked()
+    {
+        SceneManager.LoadScene(3);
+        Time.timeScale = 1;
+    }
 
 
 
-    
+
+
+
+
+
+
+
+
+
 }
