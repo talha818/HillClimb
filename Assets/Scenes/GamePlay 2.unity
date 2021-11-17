@@ -2042,7 +2042,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.35292807, g: 0.9716981, b: 0.8511478, a: 0}
+  m_BackGroundColor: {r: 0.3432716, g: 0.51251364, b: 0.5471698, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5129,7 +5129,7 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.8019986, y: -0.58400035}
+  m_Anchor: {x: -0.80200905, y: -0.556033}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
     m_DampingRatio: 1
@@ -5153,7 +5153,7 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.8140018, y: -0.5960002}
+  m_Anchor: {x: 0.8139729, y: -0.56800026}
   m_ConnectedAnchor: {x: -0.0000010515032, y: -0.00000016034147}
   m_Suspension:
     m_DampingRatio: 1
@@ -7463,7 +7463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166484328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.80200744, y: -0.365033, z: 0}
+  m_LocalPosition: {x: -0.80200744, y: -0.556033, z: 0}
   m_LocalScale: {x: 1.1286808, y: 1.1286808, z: 1.1286808}
   m_Children: []
   m_Father: {fileID: 882980239}
@@ -7508,7 +7508,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c0c7a51b41f44d34c9d6d56086be1feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8881,7 +8881,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d9089696387da8a429a06528bf74d221, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c4c59032700f4740bd524cb40c89ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9651,7 +9651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478303011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8139744, y: -0.377, z: 0}
+  m_LocalPosition: {x: 0.8139744, y: -0.568, z: 0}
   m_LocalScale: {x: 1.1286806, y: 1.1286806, z: 1.1286806}
   m_Children: []
   m_Father: {fileID: 882980239}
@@ -9696,7 +9696,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c0c7a51b41f44d34c9d6d56086be1feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

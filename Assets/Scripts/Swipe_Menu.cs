@@ -78,6 +78,11 @@ public class Swipe_Menu : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Leve3Clicked()
+    {
+        SceneManager.LoadScene(4);
+        Time.timeScale = 1;
+    }
 
 
 
