@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Carcontroller : MonoBehaviour
 {
-    
+
     public float speed = 1000f;
     public float rotationspeed = 15f;
 
@@ -15,31 +15,32 @@ public class Carcontroller : MonoBehaviour
     public WheelJoint2D backtyre;
 
 
-    private float movement=0f;
-    private float rotaion=0f;
+    private float movement = 0f;
+    private float rotaion = 0f;
 
     private bool Ispressed;
 
-    public float Fuel=1f;
-    public float FuelConsumption=0.5f;
+    public float Fuel = 1f;
+    public float FuelConsumption = 0.5f;
     public Image FuelImage;
 
 
     public GameObject PausePanel;
-   
-    public  GameObject PauseBtn;
+
+    public GameObject PauseBtn;
     public GameObject WinPanel;
     public GameObject GameOverPanel;
     public GameObject FuelLowPanel;
 
     public AudioSource GameSound;
     public AudioClip FuelClip;
-    
+
     public AudioClip Gameoverclip;
 
     public AudioClip Winclip;
 
-
+    public Text FuelHighScore;
+    public Text GameOverHighScore;
 
 
     private IEnumerator coroutine;
@@ -50,18 +51,18 @@ public class Carcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         FuelImage.fillAmount = Fuel;
 
-        if (Ispressed )
+        if (Ispressed)
         {
-            movement = -1*speed;
+            movement = -1 * speed;
         }
         else
         {
@@ -95,12 +96,12 @@ public class Carcontroller : MonoBehaviour
 
                 Fuel -= FuelConsumption * Time.fixedDeltaTime;
 
-              
+
             }
-            
-            
+
+
         }
-        if (Fuel <0)
+        if (Fuel < 0)
         {
             BreakBtnClicked();
             StartCoroutine(coroutine);
@@ -110,7 +111,7 @@ public class Carcontroller : MonoBehaviour
         }
 
         //Fuel -= FuelConsumption * Time.fixedDeltaTime;
-       
+
 
     }
 
@@ -118,7 +119,7 @@ public class Carcontroller : MonoBehaviour
 
     public void Pressed()
     {
-        Ispressed = true ;
+        Ispressed = true;
     }
 
     public void NotPressed()
@@ -147,7 +148,7 @@ public class Carcontroller : MonoBehaviour
             Destroy(c.gameObject);
         }
 
-        
+
     }
 
 
@@ -173,11 +174,11 @@ public class Carcontroller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+
 
         if (collision.gameObject.tag == "WinLine")
         {
-            GameSound.PlayOneShot(Winclip );
+            GameSound.PlayOneShot(Winclip);
             Debug.Log("WinGame");
             WinPanelClicked();
         }
@@ -192,10 +193,10 @@ public class Carcontroller : MonoBehaviour
     }
 
 
-    
 
 
-   
+
+
     public void WinPanelClicked()
     {
         coindel.ShowHighScore();
@@ -228,11 +229,15 @@ public class Carcontroller : MonoBehaviour
 
     public void GameOverPanelClicked()
     {
+      
         if (GameOverPanel == true)
         {
-          PauseBtn.SetActive(false);
+            PauseBtn.SetActive(false);
         }
         GameOverPanel.SetActive(true);
+        coindel.ShowHighScore();
+        coindel.SaveHighscore();
+        GameOverHighScore .text ="HIGHSCORE "+ coindel.HighScore.ToString();
         Time.timeScale = 0;
     }
 
@@ -260,39 +265,29 @@ public class Carcontroller : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private  IEnumerator FuelPanelClicked()
+    private IEnumerator FuelPanelClicked()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         if (FuelLowPanel == true)
         {
             PauseBtn.SetActive(false);
         }
         FuelLowPanel.SetActive(true);
+        coindel.ShowHighScore();
+        coindel.SaveHighscore();
         Time.timeScale = 0;
+        Debug.Log("aa");
+        FuelHighScore .text = "HIGHSCORE "+ coindel.HighScore.ToString();
     }
-
-    //IEnumerator Pressed()
-    //{
-    //    Fuel.fillAmount -= 0.1f;
-    //    SetMotorTorque(motorForce);
-    //    yield return new waitforseconds(2);
-    //    print("boost left : " + boostBar.fillAmount)
-    //    if (image.fillAmount <= 0)
-    //    { BreakBtnClicked(); }
-
-    //}
-
-
-
-
-
-
 
 
 }
 
-//fronttyre.AddTorque(-movement * speed * Time.fixedDeltaTime);
-//backtyre.AddTorque(-movement * speed * Time.fixedDeltaTime);
-//CarRigidbody.AddTorque(-movement * Torque * Time.fixedDeltaTime);
+
+
+
+
+
+
 
 

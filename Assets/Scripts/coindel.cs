@@ -9,14 +9,14 @@ public class coindel : MonoBehaviour
 
     public AudioSource CoinSound;
     public AudioClip Coinclip;
+    
 
-
-    public int Score;
+    public static int Score;
     public Text  Scoretxt;
 
     public static int HighScore;
     public Text HighScoretxt;
-    static int hiScore;
+    public static int hiScore;
 
 
     private void Start()
@@ -34,6 +34,8 @@ public class coindel : MonoBehaviour
         }
 
         HighScoretxt.text = "HIGHSCORE  " + hiScore.ToString();
+
+        //Debug.Log(HighScore + " -- " + hiScore);
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -91,7 +93,9 @@ public class coindel : MonoBehaviour
 
     public static void SaveHighscore()
     {
-        PlayerPrefs.SetInt("HighScore", HighScore);
+       
+       PlayerPrefs.SetInt("HighScore", HighScore);
+        Debug.Log("hi score :" + HighScore);
     }
 
     public void GetHighScore()
@@ -102,7 +106,7 @@ public class coindel : MonoBehaviour
     public static void ShowHighScore()
     {
         hiScore = HighScore;
-
-
     }
+
+    
 }

@@ -1209,6 +1209,7 @@ RectTransform:
   m_Children:
   - {fileID: 1685169032}
   - {fileID: 1102921697}
+  - {fileID: 1642377570}
   m_Father: {fileID: 1942068087}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5115,6 +5116,8 @@ MonoBehaviour:
   FuelClip: {fileID: 8300000, guid: e1ddd432b860ae24d80356af0f0c90db, type: 3}
   Gameoverclip: {fileID: 8300000, guid: 6362dc82c01266f4099527e462c7538b, type: 3}
   Winclip: {fileID: 8300000, guid: 45dd760e7266b434688409fe32085836, type: 3}
+  FuelHighScore: {fileID: 1597275283}
+  GameOverHighScore: {fileID: 1642377568}
 --- !u!235 &882980242
 WheelJoint2D:
   m_ObjectHideFlags: 0
@@ -5177,7 +5180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CoinSound: {fileID: 1805574880}
   Coinclip: {fileID: 8300000, guid: 6aac7a05d61bddb459c350ce46fb8b8f, type: 3}
-  Score: 0
   Scoretxt: {fileID: 1185065823}
   HighScoretxt: {fileID: 2038645881}
 --- !u!1 &887544881
@@ -10226,6 +10228,7 @@ RectTransform:
   m_Children:
   - {fileID: 2117019776}
   - {fileID: 1489557343}
+  - {fileID: 1597275285}
   m_Father: {fileID: 2117747627}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10347,6 +10350,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586062161}
   m_CullTransparentMesh: 1
+--- !u!1 &1597275282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597275285}
+  - component: {fileID: 1597275284}
+  - component: {fileID: 1597275283}
+  m_Layer: 5
+  m_Name: HighScoreTxt (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1597275283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597275282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0a720fade64235648ab7ee25cc2dab05, type: 3}
+    m_FontSize: 80
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 8
+    m_MaxSize: 80
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'HIGHSCORE  '
+--- !u!222 &1597275284
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597275282}
+  m_CullTransparentMesh: 1
+--- !u!224 &1597275285
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597275282}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1575473905}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.19358623}
+  m_AnchorMax: {x: 0.5, y: 0.19358623}
+  m_AnchoredPosition: {x: 0, y: -68}
+  m_SizeDelta: {x: 804.69, y: 132.4073}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &1602662955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10404,6 +10486,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ebdf9278b96ac9499d49a5acfc04acd, type: 3}
+--- !u!1 &1642377567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642377570}
+  - component: {fileID: 1642377569}
+  - component: {fileID: 1642377568}
+  m_Layer: 5
+  m_Name: HighScoreTxt (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1642377568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642377567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0a720fade64235648ab7ee25cc2dab05, type: 3}
+    m_FontSize: 80
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 8
+    m_MaxSize: 80
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'HIGHSCORE  '
+--- !u!222 &1642377569
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642377567}
+  m_CullTransparentMesh: 1
+--- !u!224 &1642377570
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642377567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 133909421}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.1901035}
+  m_AnchorMax: {x: 0.5, y: 0.1901035}
+  m_AnchoredPosition: {x: 0, y: -64}
+  m_SizeDelta: {x: 804.69, y: 132.4073}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &1647855852
 GameObject:
   m_ObjectHideFlags: 0
