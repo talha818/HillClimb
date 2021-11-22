@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     public Text hiScore;
     
 
+    
+
 
 
     // Start is called before the first frame update
@@ -19,6 +21,8 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         SettingPanel.SetActive(false);
+       
+
 
         hiScore.text = "High Score :" + GetHighScore().ToString();
         Debug.Log(GetHighScore());
@@ -41,7 +45,7 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(false);
         SettingPanel.SetActive(true);
-       
+        
     }
 
     

@@ -227,6 +227,30 @@ public class Carcontroller : MonoBehaviour
         Time.timeScale = 1;
     }
 
+
+    public void ReplayBtnClickedLevel4()
+    {
+        SceneManager.LoadScene(5);
+        GameOverPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+
+    public void ReplayBtnClickedLevel5()
+    {
+        SceneManager.LoadScene(6);
+        GameOverPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+
+    public void ReplayBtnClickedLevel6()
+    {
+        SceneManager.LoadScene(7);
+        GameOverPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void GameOverPanelClicked()
     {
       
@@ -264,6 +288,33 @@ public class Carcontroller : MonoBehaviour
         SceneManager.LoadScene(4);
         Time.timeScale = 1;
     }
+
+    public void NextlevelBtnClicked3()
+    {
+        SceneManager.LoadScene(5);
+        Time.timeScale = 1;
+    }
+
+
+    public void NextlevelBtnClicked4()
+    {
+        SceneManager.LoadScene(6);
+        Time.timeScale = 1;
+    }
+
+    public void NextlevelBtnClicked5()
+    {
+        SceneManager.LoadScene(7);
+        Time.timeScale = 1;
+    }
+
+    public void NextlevelBtnClicked6()
+    {
+        SceneManager.LoadScene(2);
+        Time.timeScale = 1;
+    }
+
+
 
     private IEnumerator FuelPanelClicked()
     {
