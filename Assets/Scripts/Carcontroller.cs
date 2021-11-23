@@ -261,21 +261,11 @@ public class Carcontroller : MonoBehaviour
         GameOverPanel.SetActive(true);
         coindel.ShowHighScore();
         coindel.SaveHighscore();
-        GameOverHighScore .text ="HIGHSCORE "+ coindel.HighScore.ToString();
+        GameOverHighScore .text ="HIGHSCORE  "+ coindel.HighScore.ToString();
         Time.timeScale = 0;
     }
 
-    //public void FuelLowPanelClicked()
-    //{
-    //    if (FuelLowPanel == true)
-    //    {
-    //        PauseBtn.SetActive(false);
-    //    }
-    //    FuelLowPanel .SetActive(true);
-    //    Time.timeScale = 0;
-    //}
-
-
+    
     public void NextlevelBtnClicked1()
     {
         SceneManager.LoadScene(3);
